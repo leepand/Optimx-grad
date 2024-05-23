@@ -104,7 +104,9 @@ class Linear(Module):
         super().__init__(device)
         self.bias = bias
         self.W = Tensor(
-            self.d.random.uniform(-1, 1, (in_features, out_features)),
+            # self.d.random.uniform(-1, 1, (in_features, out_features)),
+            # "Xavier" initialization
+            self.d.random.randn(in_features, out_features) / (self.d.sqrt(in_features)),
             device,
             dtype,
             requires_grad=True,
