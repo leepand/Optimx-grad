@@ -21,5 +21,6 @@ def get_d__(device):
     else:
         raise ValueError("Unknown value passed as device")
 
+
 def dLex():
     return cp if GPU_AVAIL else np

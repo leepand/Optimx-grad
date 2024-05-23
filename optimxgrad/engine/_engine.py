@@ -510,7 +510,9 @@ class Tensor:
 
             # if not in the no_grad context and one of the tensors care about gradient calculation; but don't sure which one.
             if self.grad_enabled:
-                data_pow_other_min_1 = self.d.vectorize(_neg_pow)(self_data, other_data - 1)
+                data_pow_other_min_1 = self.d.vectorize(_neg_pow)(
+                    self_data, other_data - 1
+                )
                 data_pow_other = self.d.vectorize(_neg_pow)(self_data, other_data)
 
                 if self.shape == other.shape:
